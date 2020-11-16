@@ -32,7 +32,7 @@ public class LibraryController {
 	}
 	
 	@RequestMapping(value = "/display/{id}", method = RequestMethod.GET)
-	public String getBookById(@PathVariable("id") int id) {
+	public String getBookById(@PathVariable("id") long id) {
 		return this.libraryService.getBookById(id);
 	}
 	
@@ -43,4 +43,8 @@ public class LibraryController {
 		return new ResponseEntity<String>(HttpStatus.CREATED);
 	}
 
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+	public String deleteBookById(@PathVariable("id") long id) {
+		return this.libraryService.deleteBook(id);
+	}
 }
